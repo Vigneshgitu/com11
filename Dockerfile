@@ -4,11 +4,11 @@ FROM openjdk:17-jdk-slim
 # Set the working directory inside the container
 WORKDIR /app
 
-# Copy the built JAR file into the container
-COPY target/*.jar app.jar
+# Copy your Java file into the container
+COPY app.java .
 
-# Expose the port your application will run on
-EXPOSE 8080
+# Compile the Java file
+RUN javac app.java
 
-# Run the application
-CMD ["java", "-jar", "app.jar"]
+# Run the Java application
+CMD ["java", "app"]
